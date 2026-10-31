@@ -1,0 +1,8 @@
+interface:
+  display_name: "Dev Workflow"
+  short_description: "前端開發、Playwright／Chrome DevTools 驗證與截圖流程"
+
+policy:
+  products:
+    - CODEX
+  allow_implicit_invocation: false

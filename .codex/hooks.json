@@ -1,0 +1,51 @@
+{
+  "description": "專案 hooks：session 紀錄、prompt 稽核日誌與危險 Bash 指令攔截。",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/bash -c 'exec \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)/.codex/hooks/scripts/session-init.sh\"'",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/bash -c 'exec \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)/.codex/hooks/scripts/session-end.sh\"'",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/bash -c 'exec \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)/.codex/hooks/scripts/log-prompt.sh\"'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/bash -c 'exec \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)/.codex/hooks/scripts/security-check.sh\"'",
+            "statusMessage": "Checking Bash command",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
