@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>日常待辦清單</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="card">
+    <header>
+      <p class="eyebrow">ONE THING AT A TIME</p>
+      <h1>日常待辦清單<span aria-hidden="true">✦</span></h1>
+      <p class="subtitle">把想做的事寫下來，慢慢完成就好。</p>
+    </header>
+    <form id="todo-form">
+      <label class="sr-only" for="todo-input">新的待辦事項</label>
+      <input id="todo-input" type="text" placeholder="今天想完成什麼？" maxlength="500" autocomplete="off" required>
+      <button class="add-button" type="submit">＋ 新增</button>
+    </form>
+    <p id="storage-message" class="storage-message" role="status" hidden></p>
+    <ul id="todo-list" aria-label="待辦事項"></ul>
+    <div id="empty-state" class="empty-state">
+      <span class="empty-icon" aria-hidden="true">✓</span>
+      <p>還沒有任何待辦事項,新增一個吧!</p>
+      <small>每一個小小的開始，都算數。</small>
+    </div>
+    <footer><span id="remaining" role="status" aria-live="polite">未完成:0 項</span><span class="footer-note">留點空間給自己</span></footer>
+  </main>
+</body>
+</html>

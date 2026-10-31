@@ -1,0 +1,50 @@
+:root {
+  --background: #f3f4ee;
+  --surface: #ffffff;
+  --text: #293c34;
+  --muted: #78827c;
+  --accent: #3f6954;
+  --accent-hover: #315440;
+  --soft: #edf3ed;
+  --border: #e5e9e3;
+  --danger: #a74646;
+  --shadow: #243d3210;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 32px 16px; background: var(--background); color: var(--text); font-family: system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif; }
+.card { width: 100%; max-width: 520px; padding: 36px 30px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 24px; box-shadow: 0 16px 50px var(--shadow); }
+.eyebrow { margin: 0 0 14px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+h1 { display: flex; align-items: center; justify-content: space-between; margin: 0; font-size: 28px; letter-spacing: -1px; }
+h1 span { color: var(--accent); font-size: 32px; }
+.subtitle { margin: 10px 0 28px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+form { display: flex; gap: 8px; }
+input[type="text"] { min-width: 0; flex: 1; padding: 13px 14px; border: 1px solid var(--border); border-radius: 10px; color: var(--text); background: var(--background); font: inherit; font-size: 14px; }
+input::placeholder { color: var(--muted); }
+button { cursor: pointer; font: inherit; }
+.add-button { flex-shrink: 0; padding: 12px 16px; border: 0; border-radius: 10px; background: var(--accent); color: var(--surface); font-size: 14px; font-weight: 600; }
+.add-button:hover { background: var(--accent-hover); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+ul { list-style: none; padding: 0; margin: 24px 0; }
+.todo-item { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.todo-label { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; cursor: pointer; }
+.todo-label input { width: 19px; height: 19px; flex-shrink: 0; margin: 0; accent-color: var(--accent); cursor: pointer; }
+.todo-text { font-size: 15px; line-height: 1.6; overflow-wrap: anywhere; }
+.completed .todo-text { text-decoration: line-through; color: var(--muted); opacity: .65; }
+.delete-button { flex-shrink: 0; border: 0; border-radius: 8px; padding: 9px; background: transparent; color: var(--muted); font-size: 13px; }
+.delete-button:hover { background: var(--background); color: var(--danger); }
+.empty-state { text-align: center; padding: 20px 0 46px; }
+.empty-icon { display: grid; place-items: center; width: 52px; height: 52px; margin: 0 auto 18px; border-radius: 17px; background: var(--soft); color: var(--accent); font-size: 25px; }
+.empty-state p { margin: 0 0 9px; font-size: 14px; }
+.empty-state small { color: var(--muted); font-size: 12px; }
+footer { display: flex; justify-content: space-between; gap: 10px; padding-top: 19px; border-top: 1px solid var(--border); font-size: 12px; }
+#remaining { color: var(--accent); font-weight: 600; }
+.footer-note { color: var(--muted); }
+.storage-message { color: var(--danger); font-size: 13px; line-height: 1.6; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+[hidden] { display: none !important; }
+@media (max-width: 420px) {
+  .card { padding: 28px 20px 20px; }
+  h1 { font-size: 25px; }
+  .add-button { padding-inline: 12px; }
+  .empty-state p { font-size: 13px; }
+}
